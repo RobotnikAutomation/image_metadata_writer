@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="image_metadata_writer" pkg="image_metadata_writer" type="metadata_writer_node.py" output="screen">
+    <rosparam command="load" file="$(find image_metadata_writer)/config/default.yaml" subst_value="true"/>
+  </node>
+
+
+</launch>
