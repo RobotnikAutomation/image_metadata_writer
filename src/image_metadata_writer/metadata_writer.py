@@ -9,6 +9,7 @@ class MetadataWriter(RComponent):
 
         self.metadata_writers = []
         self.writers = {}
+        self.folder_path = "/home/robot/"
 
         RComponent.__init__(self)
 
@@ -16,6 +17,7 @@ class MetadataWriter(RComponent):
         """Gets params from param server"""
         RComponent.ros_read_params(self)
 
+        self.folder_path = rospy.get_param('~folder_path', self.folder_path)
         self.metadata_writers = rospy.get_param('~metadata_writers', self.metadata_writers)
 
 
@@ -92,7 +94,7 @@ class MetadataWriter(RComponent):
             module = __import__(module_import_name, fromlist=['object'])
             object_type = getattr(module, class_name)
 
-            return object_type(self._node_name, metadata_writer, metadata_writer_params)
+            return object_type(self._node_name, metadata_writer, metadata_writer_params, self.folder_path)
 
 
         except KeyError as key_error:

@@ -11,8 +11,8 @@ from base_writer import BaseWriter
 
 class NavSatFixWriter(BaseWriter):
 
-    def __init__(self, ns, name, params):
-        BaseWriter.__init__(self, ns, name, params)
+    def __init__(self, ns, name, params, folder_path):
+        BaseWriter.__init__(self, ns, name, params, folder_path)
         
         self.gps_msg = None
         self.gps_ns = params['namespace']
@@ -30,8 +30,15 @@ class NavSatFixWriter(BaseWriter):
             response.ret.message = msg
             rospy.logerr("%s::write_cb: %s" % (self.ns, msg))
         else:
-            msg = "GPS data recorded"
-            self.write_gps(request.data)
+            image_url = ""
+            if request.data.startswith("/"):
+                image_url = request.data
+            else:
+                image_url = self.folder_path + request.data
+            self.write_gps(image_url)
+
+            msg = "GPS data recorded in " + image_url
+
             response.ret.success = True
             response.ret.message = msg
 

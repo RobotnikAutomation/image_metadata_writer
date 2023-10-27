@@ -3,10 +3,11 @@ import piexif
 
 class BaseWriter():
 
-    def __init__(self, ns, name, params):
+    def __init__(self, ns, name, params, folder_path):
         self.ns = ns + "/" + name
         self.name = name
         self.params = params
+        self.folder_path = folder_path
         
         self.gps_msg = None
         self.execute_srv = None         
