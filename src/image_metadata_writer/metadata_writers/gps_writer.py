@@ -41,6 +41,8 @@ class NavSatFixWriter(BaseWriter):
 
             response.ret.success = True
             response.ret.message = msg
+            
+            rospy.loginfo("%s::write_cb: %s" % (self.ns, msg))
 
         
         return response
