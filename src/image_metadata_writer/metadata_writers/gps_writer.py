@@ -7,7 +7,7 @@ from fractions import Fraction
 from sensor_msgs.msg import NavSatFix
 from robotnik_msgs.srv import SetString, SetStringResponse
 
-from base_writer import BaseWriter
+from metadata_writers.base_writer import BaseWriter
 
 class NavSatFixWriter(BaseWriter):
 
