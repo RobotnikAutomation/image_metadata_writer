@@ -1,6 +1,8 @@
 # Image Metadata Writer
 Node to write metadata into JPG images
 
+## Prerequisites
+Python module **piexif** needed, installation: `pip install piexif`
 
 ## GPS Writer
 
