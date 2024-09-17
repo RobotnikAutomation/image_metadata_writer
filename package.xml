@@ -62,7 +62,7 @@
   <exec_depend>message_runtime</exec_depend>
   <exec_depend>rcomponent</exec_depend>
 
-  <exec_depend>piexif</exec_depend>
+  <exec_depend>python3-piexif</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
